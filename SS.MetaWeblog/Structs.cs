@@ -2,71 +2,71 @@
 
 namespace SS.MetaWeblog
 {
-    public class BlogInfo
+    public class MetaBlogInfo
     {
-        public string blogid;
-        public string url;
-        public string blogName;
+        public string blogid { get; set; }
+        public string url { get; set; }
+        public string blogName { get; set; }
     }
 
-    public class CategoryInfo
+    public class MetaCategoryInfo
     {
-        public string description;
-        public string htmlUrl;
-        public string rssUrl;
-        public string title;
-        public string categoryid;
+        public string description{ get; set; }
+        public string htmlUrl{ get; set; }
+        public string rssUrl{ get; set; }
+        public string title{ get; set; }
+        public string categoryid{ get; set; }
     }
 
-    public class NewCategory
+    public class MetaNewCategory
     {
-        public string name;
-        public int parent_id;
+        public string name{ get; set; }
+        public int parent_id{ get; set; }
     }
 
-    public class Enclosure
+    public class MetaEnclosure
     {
-        public int length;
-        public string type;
-        public string url;
+        public int length{ get; set; }
+        public string type{ get; set; }
+        public string url{ get; set; }
     }
 
-    public class Post
+    public class MetaPost
     {
-        public DateTime dateCreated;
-        public string description;
-        public string title;
-        public string[] categories;
-        public string permalink;
-        public object postid;
-        public string userid;
-        public string wp_slug;
+        public DateTime dateCreated{ get; set; }
+        public string description{ get; set; }
+        public string title{ get; set; }
+        public string[] categories{ get; set; }
+        public string permalink{ get; set; }
+        public object postid{ get; set; }
+        public string userid{ get; set; }
+        public string wp_slug{ get; set; }
     }
 
-    public class Source
+    public class MetaSource
     {
-        public string name;
-        public string url;
+        public string name{ get; set; }
+        public string url{ get; set; }
     }
 
-    public class UserInfo
+    public class MetaUserInfo
     {
-        public string userid;
-        public string nickname;
-        public string email;
-        public string url;
+        public string userid{ get; set; }
+        public string nickname{ get; set; }
+        public string email{ get; set; }
+        public string url{ get; set; }
     }
 
-    public class MediaObject
+    public class MetaMediaObject
     {
-        public string name;
-        public string type;
-        public string bits;
+        public string name{ get; set; }
+        public string type{ get; set; }
+        public string bits{ get; set; }
     }
 
-    public class MediaObjectInfo
+    public class MetaMediaObjectInfo
     {
-        public string url;
+        public string url{ get; set; }
     }
 
 }

@@ -277,12 +277,12 @@ namespace SS.MetaWeblog
             switch (_method)
             {
                 case "metaWeblog.newMediaObject":
-                    return ConvertToType<MediaObject>(dict);
+                    return ConvertToType<MetaMediaObject>(dict);
                 case "metaWeblog.newPost":
                 case "metaWeblog.editPost":
-                    return ConvertToType<Post>(dict);
+                    return ConvertToType<MetaPost>(dict);
                 case "wp.newCategory":
-                    return ConvertToType<NewCategory>(dict);
+                    return ConvertToType<MetaNewCategory>(dict);
                 default:
                     throw new InvalidOperationException("Unknown type of struct discovered.");
             }
