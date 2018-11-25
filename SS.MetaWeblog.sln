@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SS.MetaWeblog", "SS.MetaWeblog\SS.MetaWeblog.csproj", "{631FF88D-4CFB-442C-B403-2B0D56239413}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SS.MetaWeblog", "src\SS.MetaWeblog.csproj", "{631FF88D-4CFB-442C-B403-2B0D56239413}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

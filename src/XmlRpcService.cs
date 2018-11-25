@@ -1,26 +1,25 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using SS.Toolkit.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
-using Microsoft.Extensions.Logging;
-using SS.Toolkit.Extensions;
 
 namespace SS.MetaWeblog
 {
     public class XmlRpcService
     {
+        private string _method = null;
+        private ILogger _logger = null;
 
         public XmlRpcService(ILogger logger)
         {
             _logger = logger;
         }
 
-        private string _method = null;
-        private ILogger _logger = null;
 
         public string Invoke(string xml)
         {
@@ -34,7 +33,7 @@ namespace SS.MetaWeblog
                 {
                     _method = methodNameElement.Value;
 
-                    //_logger.LogInformation($"Invoking {_method} on XMLRPC Service");
+                    _logger.LogInformation($"Invoking {_method} on XMLRPC Service");
 
                     var theType = GetType();
 
@@ -171,15 +170,13 @@ namespace SS.MetaWeblog
         private object[] GetParameters(XDocument doc)
         {
             var parameters = new List<object>();
-            var paramsEle = doc.Descendants("params");
-
+            var paramsElement = doc.Descendants("params");
             // Handle no parameters
-            if (paramsEle == null)
+            if (paramsElement == null)
             {
                 return parameters.ToArray();
             }
-
-            foreach (var p in paramsEle.Descendants("param"))
+            foreach (var p in paramsElement.Descendants("param"))
             {
                 parameters.AddRange(ParseValue(p.Element("value")));
             }
@@ -292,7 +289,6 @@ namespace SS.MetaWeblog
         private List<object> ConvertToType<T>(Dictionary<string, object> dict) where T : new()
         {
             var info = typeof(T).GetTypeInfo();
-
             // Convert it
             var result = new T();
             foreach (var key in dict.Keys)
@@ -306,12 +302,9 @@ namespace SS.MetaWeblog
                 }
                 else
                 {
-                    //_logger.LogWarning($"Skipping field {key} when converting to {typeof(T).Name}");
+                    _logger.LogWarning($"Skipping field {key} when converting to {typeof(T).Name}");
                 }
             }
-
-            Debug.WriteLine(result);
-
             return new List<object>() { result };
         }
 
